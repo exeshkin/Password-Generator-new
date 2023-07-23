@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Password Generator</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container row jcc">
+            <h1 class="col-8"><a href="index.html">Password Generator</a></h1>
+
+            <div class="col-4 row pass-len jcc">
+                <label class="col text-center" for="passLenght">
+                    <h6>Password Length</h6>
+                </label>
+
+                <div class="col row">
+                    <input class="form-control text-center" min="3" max="128" value="16" type="number" id="passLength"
+                        placeholder="min: 3, max: 128">
+                    <div class="invalid-feedback">min: 3, max: 128</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="col row jcc">
+
+                <div class="row pass-create jcc">
+                    <div class="col-8 pass-composition-col">
+                        <div class="row jcc">
+                            <div class="row">
+                                <h5 class="col">Password composition:</h5>
+                                <button type="button" class="col button-select" id="btnReset">Reset Default</button>
+                            </div>
+
+                            <hr class="hr-composition">
+
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-check-input" type="checkbox" value="" id="uppercaseLetters"
+                                        checked>
+                                    <label class="form-check-label" for="uppercaseLetters">
+                                        <h6>Uppercase letters</h6>
+                                    </label>
+                                </div>
+                                <button type="button" class="col button-select" id="btnSelectAllUppercase">Select all
+                                    uppercase letters</button>
+                            </div>
+
+                            <div class="row" id="cbUppercase">
+                                <!-- JS -->
+                            </div>
+                            <hr class="hr-composition">
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-check-input" type="checkbox" value="" id="lowercaseLetters"
+                                        checked>
+                                    <label class="form-check-label" for="lowercaseLetters">
+                                        <h6>Lowercase letters</h6>
+                                    </label>
+                                </div>
+                                <button type="button" class="col button-select" id="btnSelectAllLowercase">Select all
+                                    lowercase letters</button>
+                            </div>
+
+                            <div class="row" id="cbLowercase">
+                                <!-- JS -->
+                            </div>
+                            <hr class="hr-composition">
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-check-input" type="checkbox" value="" id="numbers" checked>
+                                    <label class="form-check-label" for="numbers">
+                                        <h6>Numbers</h6>
+                                    </label>
+                                </div>
+                                <button type="button" class="col button-select" id="btnSelectAllNumbers">Select all
+                                    numbers</button>
+                            </div>
+
+                            <div class="row" id="cbNumbers">
+                                <!-- JS -->
+                            </div>
+                            <hr class="hr-composition">
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-check-input" type="checkbox" value="" id="symbols" checked>
+                                    <label class="form-check-label" for="symbols">
+                                        <h6>Symbols</h6>
+                                    </label>
+                                </div>
+                                <button type="button" class="col button-select" id="btnSelectAllSymbols">Select all
+                                    symbols</button>
+                            </div>
+
+                            <div class="row" id="cbSymbols">
+                                <!-- JS -->
+                            </div>
+                            <hr class="hr-composition">
+
+                        </div>
+                    </div>
+
+                    <div class="col-4 gen-pass-col" id="generatedPasswordsColumn">
+                        <div class="border rounded text-center pass copied">FH6qz7eZHRmQamya<span>Copied</span></div>
+                        <div class="border rounded text-center pass">FH6qz7eZHRmQamya</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col text-center btn-create">
+                <a class="btn btn-primary col-2" id="btnCreate">Create</a>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <p>2023 © als</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/js.js"></script>
+</body>
+
+</html>

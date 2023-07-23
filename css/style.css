@@ -1,0 +1,159 @@
+@font-face {
+    font-family: "RobotoMono";
+    src: url('../fonts/RobotoMono.ttf') format('truetype');
+}
+
+:root {
+    --bg-color: #6ea8fe;
+    --bg-color-content: #c4dcff;
+    --bg-color-pass: #dceeff;
+    --txt-color: #f8f9fa;
+    --txt-content: #003366;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding: 10px 30px 10px 30px;
+}
+
+header a {
+    color: var(--txt-color);
+    text-decoration: none;
+}
+
+header a:hover {
+    color: var(--txt-color);
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+    background-color: var(--bg-color-content);
+    color: var(--txt-content);
+    padding: 20px;
+}
+
+.pass-len {
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+.jcc {
+    justify-content: center;
+    align-items: center;
+}
+
+.pass-create {
+    padding: 10px;
+}
+
+.pass-composition-col {
+    min-width: 400px;
+}
+
+.button-select {
+    border: none;
+    background: none;
+    text-align: right;
+    text-decoration: underline;
+    color: var(--txt-content);
+}
+
+.cb-elem {
+    background-color: var(--bg-color-pass);
+    border-color: cornflowerblue !important;
+    margin: 1px;
+    font-size: 0.9rem;
+}
+
+.hr-composition {
+    border: none;
+    border-top: 1px dashed var(--txt-content);
+    margin-top: 15px;
+}
+
+.gen-pass-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+
+.pass {
+    font-family: "RobotoMono", monospace;
+    width: 100%;
+    margin-bottom: 7px;
+    background-color: var(--bg-color-pass);
+    border-color: cornflowerblue !important;
+    padding: 5px 7px;
+    flex: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: all 0.1s;
+}
+
+.pass span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #a2ffb2;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.1), inset 1px 1px 2px #fff;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s
+}
+
+.pass span._copied {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pass:hover {
+    transform: scale(1.02);
+}
+
+.copied {
+    background-color: palegreen;
+    font-weight: 700;
+}
+
+.btn-create {
+    padding: 10px 0px 0px 0px;
+}
+
+footer {
+    background-color: var(--bg-color);
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+    color: var(--txt-color);
+}
