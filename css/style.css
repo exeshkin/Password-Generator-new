@@ -4,11 +4,11 @@
 }
 
 :root {
-    --bg-color: #6ea8fe;
-    --bg-color-content: #c4dcff;
-    --bg-color-pass: #dceeff;
+    --bg-color: #6c757d;
+    --bg-color-content: #f8f9fa;
+    --bg-color-pass: #dadada;
     --txt-color: #f8f9fa;
-    --txt-content: #003366;
+    --txt-content: #2e2e2e;
 }
 
 html, body {
@@ -101,7 +101,7 @@ main {
     width: 100%;
     margin-bottom: 7px;
     background-color: var(--bg-color-pass);
-    border-color: cornflowerblue !important;
+    border-color: rgb(87, 78, 78) !important;
     padding: 5px 7px;
     flex: 0;
     position: relative;
@@ -123,7 +123,8 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    background: #a2ffb2;
+    background: #828b94;
+    color: #fff;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.1), inset 1px 1px 2px #fff;
     opacity: 0;
     transform: scale(0);
@@ -140,12 +141,19 @@ main {
 }
 
 .copied {
-    background-color: palegreen;
-    font-weight: 700;
+    background-color: #6c757d;
+    color: #fff;
+    font-weight: 900;
+    transform: scale(1.02);
 }
 
 .btn-create {
     padding: 10px 0px 0px 0px;
+}
+
+.form-check-input:checked {
+    background-color: #777b81;
+    border-color: #777b81;
 }
 
 footer {
