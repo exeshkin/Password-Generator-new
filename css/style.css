@@ -54,6 +54,10 @@ main {
     align-items: center;
 }
 
+.pass-len h6{
+    color: var(--txt-color);
+}
+
 .jcc {
     justify-content: center;
     align-items: center;
