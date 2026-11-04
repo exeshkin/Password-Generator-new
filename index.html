@@ -1,143 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Password Generator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="color-scheme" content="light">
+	<title>Генератор паролей</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;700&display=swap">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+	<div class="container">
+		<h1 class="title">Генератор пароля</h1>
 
-    <header>
-        <div class="container row jcc">
-            <h1 class="col-8"><a href="index.html">Password Generator</a></h1>
+		<main class="section">
+			<div class="length-box">
+				<label class="set-input" for="passlength">Длина пароля</label>
+				<div class="length">
+					<input class="range" type="range" id="range" min="1" max="64" value="16" aria-label="Длина пароля, ползунок">
+					<input class="length-input" type="number" id="passlength" min="1" max="64" value="16" inputmode="numeric">
+				</div>
+				<p class="hint">от 1 до 64 символов</p>
+			</div>
 
-            <div class="col-4 row pass-len jcc">
-                <label class="col text-center" for="passLenght">
-                    <h6>Password Length</h6>
-                </label>
+			<div class="ready-passwords">
+				<ul class="pass-list" id="passList"></ul>
+				<button class="btn-create" type="button" id="btnCreate">Обновить</button>
+				<p class="status" id="status" role="status" aria-live="polite"></p>
+			</div>
 
-                <div class="col row">
-                    <input class="form-control text-center" min="3" max="128" value="16" type="number" id="passLength"
-                        placeholder="min: 3, max: 128">
-                    <div class="invalid-feedback">min: 3, max: 128</div>
-                </div>
-            </div>
-        </div>
-    </header>
+			<div class="composition">
+				<div class="comp-head">
+					<h2 class="comp-title">Состав пароля</h2>
+					<button class="link" type="button" id="btnReset">Сбросить</button>
+				</div>
+				<div id="groups"></div>
+			</div>
+		</main>
+	</div>
 
-    <main>
-        <div class="container">
-            <div class="col row jcc">
+	<footer class="footer">© <span id="year"></span> Генератор паролей</footer>
 
-                <div class="row pass-create jcc">
-                    <div class="col-8 pass-composition-col">
-                        <div class="row jcc">
-                            <div class="row">
-                                <h5 class="col">Password composition:</h5>
-                                <button type="button" class="col button-select" id="btnReset">Reset Default</button>
-                            </div>
-
-                            <hr class="hr-composition">
-
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-check-input" type="checkbox" value="" id="uppercaseLetters"
-                                        checked>
-                                    <label class="form-check-label" for="uppercaseLetters">
-                                        <h6>Uppercase letters</h6>
-                                    </label>
-                                </div>
-                                <button type="button" class="col button-select" id="btnSelectAllUppercase">Select all
-                                    uppercase letters</button>
-                            </div>
-
-                            <div class="row" id="cbUppercase">
-                                <!-- JS -->
-                            </div>
-                            <hr class="hr-composition">
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-check-input" type="checkbox" value="" id="lowercaseLetters"
-                                        checked>
-                                    <label class="form-check-label" for="lowercaseLetters">
-                                        <h6>Lowercase letters</h6>
-                                    </label>
-                                </div>
-                                <button type="button" class="col button-select" id="btnSelectAllLowercase">Select all
-                                    lowercase letters</button>
-                            </div>
-
-                            <div class="row" id="cbLowercase">
-                                <!-- JS -->
-                            </div>
-                            <hr class="hr-composition">
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-check-input" type="checkbox" value="" id="numbers" checked>
-                                    <label class="form-check-label" for="numbers">
-                                        <h6>Numbers</h6>
-                                    </label>
-                                </div>
-                                <button type="button" class="col button-select" id="btnSelectAllNumbers">Select all
-                                    numbers</button>
-                            </div>
-
-                            <div class="row" id="cbNumbers">
-                                <!-- JS -->
-                            </div>
-                            <hr class="hr-composition">
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-check-input" type="checkbox" value="" id="symbols" checked>
-                                    <label class="form-check-label" for="symbols">
-                                        <h6>Symbols</h6>
-                                    </label>
-                                </div>
-                                <button type="button" class="col button-select" id="btnSelectAllSymbols">Select all
-                                    symbols</button>
-                            </div>
-
-                            <div class="row" id="cbSymbols">
-                                <!-- JS -->
-                            </div>
-                            <hr class="hr-composition">
-
-                        </div>
-                    </div>
-
-                    <div class="col-4 gen-pass-col" id="generatedPasswordsColumn">
-                        <div class="border rounded text-center pass copied">FH6qz7eZHRmQamya<span>Copied</span></div>
-                        <div class="border rounded text-center pass">FH6qz7eZHRmQamya</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col text-center btn-create">
-                <a class="btn btn-secondary col-2" id="btnCreate">Create</a>
-            </div>
-
-
-        </div>
-    </main>
-
-    <footer class="text-center">
-        <p>2023 © als</p>
-    </footer>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/js.js"></script>
+	<script src="js/pass-gen.js"></script>
 </body>
 
 </html>
